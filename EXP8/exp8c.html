@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loop Example</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(to right, #f9f9f9, #d6eaf8);
+      text-align: center;
+      padding: 50px;
+    }
+
+    h2 {
+      color: #2980b9;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 2px #ccc;
+    }
+
+    .loop-output {
+      margin: 20px auto;
+      padding: 20px;
+      background-color: rgba(255,255,255,0.8);
+      display: inline-block;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      min-width: 300px;
+      text-align: left;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    button {
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-bottom: 20px;
+    }
+
+    button:hover {
+      background-color: #1e8449;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Loop Example</h2>
+  <button onclick="printNumbers()">Display Numbers 1 to 10</button>
+
+  <div class="loop-output" id="output">Click the button to see the numbers.</div>
+
+  <script>
+    function printNumbers() {
+      let outputDiv = document.getElementById("output");
+      let html = "";
+
+      html += "<b>Using for loop:</b> ";
+      for (let i = 1; i <= 10; i++) html += i + " ";
+      html += "<br><b>Using while loop:</b> ";
+      let j = 1;
+      while (j <= 10) {
+        html += j + " ";
+        j++;
+      }
+      html += "<br><b>Using do-while loop:</b> ";
+      let k = 1;
+      do {
+        html += k + " ";
+        k++;
+      } while (k <= 10);
+
+      outputDiv.innerHTML = html;
+    }
+  </script>
+
+</body>
+</html>

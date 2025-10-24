@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Largest of Three Numbers</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(to right, #fdfbfb, #ebedee);
+      text-align: center;
+      padding: 50px;
+    }
+
+    h2 {
+      color: #c0392b;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 2px #ccc;
+    }
+
+    button {
+      background-color: #2980b9;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #1f618d;
+      transform: scale(1.05);
+    }
+
+    #result {
+      margin-top: 25px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #27ae60;
+      padding: 15px;
+      border-radius: 10px;
+      background-color: rgba(255,255,255,0.8);
+      display: inline-block;
+      min-width: 250px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Find the Largest of Three Numbers</h2>
+
+  <button onclick="findLargest()">Enter Numbers</button>
+
+  <p id="result">Click the button to find the largest among three numbers.</p>
+
+  <script>
+    function findLargest() {
+      let a = parseFloat(prompt("Enter the first number:"));
+      let b = parseFloat(prompt("Enter the second number:"));
+      let c = parseFloat(prompt("Enter the third number:"));
+
+      let resultDiv = document.getElementById("result");
+
+      if (isNaN(a) || isNaN(b) || isNaN(c)) {
+        resultDiv.innerHTML = "⚠️ Please enter valid numbers!";
+        resultDiv.style.color = "#c0392b";
+        return;
+      }
+
+      if (a === b && b === c) {
+        resultDiv.innerHTML = "EQUAL NUMBERS";
+        resultDiv.style.color = "#f39c12";
+      } else {
+        let largest = Math.max(a, b, c);
+        resultDiv.innerHTML = largest + " is the LARGER NUMBER";
+        resultDiv.style.color = "#27ae60";
+      }
+    }
+  </script>
+</body>
+</html>

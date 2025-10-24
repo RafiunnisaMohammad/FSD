@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Armstrong Number Check</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(to right, #fdfbfb, #d6eaf8);
+      text-align: center;
+      padding: 50px;
+    }
+
+    h2 {
+      color: #d35400;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 2px #ccc;
+    }
+
+    button {
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-bottom: 20px;
+    }
+
+    button:hover {
+      background-color: #1e8449;
+      transform: scale(1.05);
+    }
+
+    #result {
+      margin-top: 25px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #2980b9;
+      padding: 15px;
+      border-radius: 10px;
+      background-color: rgba(255,255,255,0.8);
+      display: inline-block;
+      min-width: 250px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Check Armstrong Number</h2>
+  <button onclick="checkArmstrong()">Enter Number</button>
+
+  <p id="result">Click the button to check a number.</p>
+
+  <script>
+    function checkArmstrong() {
+      // Input taken via prompt (alert-style)
+      let num = parseInt(prompt("Enter a number:"));
+      let resultDiv = document.getElementById("result");
+
+      if (isNaN(num)) {
+        resultDiv.innerHTML = "⚠️ Please enter a valid number!";
+        resultDiv.style.color = "#c0392b";
+        return;
+      }
+
+      // Check Armstrong
+      let sum = 0;
+      let temp = num;
+      let digits = num.toString().length; // Works for any number of digits
+
+      while (temp > 0) {
+        let digit = temp % 10;
+        sum += digit ** digits;
+        temp = Math.floor(temp / 10);
+      }
+
+      if (sum === num) {
+        resultDiv.innerHTML = `${num} is an <span style="color:#27ae60;">ARMSTRONG NUMBER ✅</span>`;
+      } else {
+        resultDiv.innerHTML = `${num} is <span style="color:#c0392b;">NOT an ARMSTRONG NUMBER ❌</span>`;
+      }
+    }
+  </script>
+
+</body>
+</html>

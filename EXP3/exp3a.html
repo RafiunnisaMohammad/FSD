@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Semantic Tags Example</title>
+    <style>
+        header, footer, article, aside, section, nav, main {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+        }
+        header, footer {
+            background-color: #e1f5fe;
+            text-align: center;
+        }
+        nav {
+            background-color: #bbdefb;
+            text-align: center;
+        }
+        aside {
+            background-color: #f0f4c3;
+            width: 25%;
+            float: right;
+        }
+        main {
+            background-color: #fffde7;
+            overflow: hidden;
+        }
+        article {
+            background-color: #fce4ec;
+        }
+        figure {
+            text-align: center;
+        }
+        figcaption {
+            font-style: italic;
+            color: gray;
+        }
+        div {
+            background-color: #f3e5f5;
+            padding: 10px;
+            margin: 10px;
+        }
+        span {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to My HTML5 Page</h1>
+    </header>
+
+    <nav>
+        <a href="#">Home</a> |
+        <a href="#">About</a> |
+        <a href="#">Contact</a>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Section 1: About HTML5</h2>
+            <article>
+                <h3>What is HTML5?</h3>
+                <p>HTML5 is the latest version of HTML that introduces new semantic elements such as <span>&lt;article&gt;</span>, <span>&lt;section&gt;</span>, and <span>&lt;nav&gt;</span> for better structure.</p>
+            </article>
+        </section>
+
+        <aside>
+            <h3>Quick Facts</h3>
+            <ul>
+                <li>Launched in 2014</li>
+                <li>Supports multimedia</li>
+                <li>Semantic tags added</li>
+            </ul>
+        </aside>
+
+        <section>
+            <h2>Section 2: Example Figure</h2>
+            <figure>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6935wo8bLZh5FeafJEffqWKDOpNpx6UE5bg&s" alt="HTML5 Logo" width="200">
+                <figcaption>Figure 1: HTML5 Logo</figcaption>
+            </figure>
+        </section>
+
+        <div>
+            <p>This <span>div</span> is a general-purpose container.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 My HTML5 Page. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

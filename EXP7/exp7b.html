@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Window Object Example</title>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #ffe0b2);
+      text-align: center;
+      padding: 40px;
+    }
+
+    h2 {
+      color: #d35400;
+      text-shadow: 1px 1px 3px #ccc;
+      margin-bottom: 30px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      margin: 10px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #388E3C;
+      transform: scale(1.05);
+    }
+
+    #info {
+      display: inline-block;
+      background: #fff;
+      padding: 20px 30px;
+      margin-top: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      font-size: 18px;
+      line-height: 1.6;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #info:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    }
+
+    footer {
+      margin-top: 30px;
+      color: #555;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h2>🌐 Window Object Example</h2>
+
+  <button onclick="openWindow()">Open New Window</button>
+  <button onclick="closeWindow()">Close It</button>
+
+  <p id="info"></p>
+
+
+  <script>
+    let win;
+
+    function updateWindowInfo() {
+      document.getElementById("info").innerHTML =
+        `<strong>Window Width:</strong> ${window.innerWidth}px<br>` +
+        `<strong>Window Height:</strong> ${window.innerHeight}px`;
+    }
+
+    function openWindow() {
+      win = window.open("", "newWindow", "width=400,height=250");
+      win.document.write("<h3 style='text-align:center;color:#4CAF50;'>This is a new window!</h3>");
+    }
+
+    function closeWindow() {
+      if (win) win.close();
+    }
+
+    // Update window info on resize
+    window.addEventListener("resize", updateWindowInfo);
+
+    // Initial display
+    updateWindowInfo();
+  </script>
+</body>
+</html>

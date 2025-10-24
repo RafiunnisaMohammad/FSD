@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array Object Example</title>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(to right, #ffe0b2, #e0f7fa);
+      text-align: center;
+      padding: 40px;
+    }
+
+    h2 {
+      color: #d35400;
+      text-shadow: 1px 1px 3px #ccc;
+      margin-bottom: 25px;
+    }
+
+    #output {
+      display: inline-block;
+      background: #fff;
+      padding: 25px 35px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      font-size: 18px;
+      line-height: 1.8;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 20px;
+    }
+
+    #output:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      margin: 8px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #388E3C;
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: 25px;
+      color: #555;
+      font-size: 14px;
+    }
+
+    input[type="text"] {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      outline: none;
+      margin-right: 8px;
+    }
+
+    input[type="text"]:focus {
+      border-color: #4CAF50;
+      box-shadow: 0 0 5px #4CAF50;
+    }
+  </style>
+</head>
+<body>
+  <h2>🍎 Array Object Example</h2>
+
+  <div id="output"></div>
+
+  <div>
+    <input type="text" id="newFruit" placeholder="Add new fruit">
+    <button onclick="addFruit()">Add Fruit</button>
+    <button onclick="sortFruits()">Sort Fruits</button>
+    <button onclick="removeFruit()">Remove Last Fruit</button>
+  </div>
+
+
+  <script>
+    let fruits = ["Apple", "Banana", "Mango"];
+
+    function displayFruits() {
+      let len = fruits.length;
+      document.getElementById("output").innerHTML =
+        `<strong>Fruits:</strong> ${fruits.join(", ")}<br>` +
+        `<strong>Length:</strong> ${len}<br>` +
+        `<strong>First Fruit:</strong> ${fruits[0] || "None"}`;
+    }
+
+    function addFruit() {
+      let newFruit = document.getElementById("newFruit").value.trim();
+      if(newFruit) {
+        fruits.push(newFruit);
+        document.getElementById("newFruit").value = "";
+        displayFruits();
+      } else {
+        alert("Please enter a fruit name!");
+      }
+    }
+
+    function sortFruits() {
+      fruits.sort();
+      displayFruits();
+    }
+
+    function removeFruit() {
+      if(fruits.length > 0) {
+        fruits.pop();
+        displayFruits();
+      } else {
+        alert("No fruits to remove!");
+      }
+    }
+
+    // Initial display
+    displayFruits();
+  </script>
+</body>
+</html>

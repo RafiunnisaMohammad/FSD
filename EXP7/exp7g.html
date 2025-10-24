@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Date Object Example</title>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(to right, #f9f9f9, #d0e6f6);
+      text-align: center;
+      padding: 50px;
+    }
+
+    h2 {
+      color: #2980b9;
+      text-shadow: 1px 1px 2px #ccc;
+      margin-bottom: 25px;
+    }
+
+    #demo {
+      display: inline-block;
+      background: #fff;
+      padding: 25px 35px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      text-align: left;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #demo:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    }
+
+    .label {
+      color: #c0392b;
+      font-weight: bold;
+    }
+
+    button {
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      margin: 10px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #1e8449;
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: 25px;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h2>📅 Date Object Example</h2>
+
+  <div id="demo"></div>
+  <button onclick="updateDate()">Update Date & Time</button>
+
+
+  <script>
+    function updateDate() {
+      let now = new Date();
+      document.getElementById("demo").innerHTML = `
+        <span class="label">Current Date and Time:</span> ${now} <br>
+        <span class="label">Year:</span> ${now.getFullYear()} <br>
+        <span class="label">Month:</span> ${now.getMonth() + 1} <br>
+        <span class="label">Day:</span> ${now.getDate()} <br>
+        <span class="label">Hours:</span> ${now.getHours()} <br>
+        <span class="label">Minutes:</span> ${now.getMinutes()} <br>
+        <span class="label">Seconds:</span> ${now.getSeconds()}
+      `;
+    }
+
+    // Initial display
+    updateDate();
+  </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Output Methods</title>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #f1f8e9);
+      text-align: center;
+      padding: 40px;
+    }
+
+    h2 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      margin: 8px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 15px;
+    }
+
+    button:hover {
+      background-color: #388E3C;
+      transform: scale(1.05);
+    }
+
+    #output {
+      margin-top: 25px;
+      font-weight: bold;
+      font-size: 18px;
+      color: #00695c;
+    }
+
+    .alert-box {
+      background-color: #f8d7da;
+      color: #721c24;
+      padding: 12px;
+      border-radius: 6px;
+      margin-top: 15px;
+      display: inline-block;
+      border: 1px solid #f5c6cb;
+    }
+
+    .console-log {
+      background-color: #d1ecf1;
+      color: #0c5460;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #bee5eb;
+      margin-top: 15px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <h2>JavaScript Output Methods</h2>
+
+  <button onclick="showAlert()">Show Alert</button>
+  <button onclick="showConsole()">Show Console Message</button>
+  <button onclick="showDocumentWrite()">Use document.write()</button>
+  <button onclick="showInnerHTML()">Use innerHTML</button>
+
+  <p id="output"></p>
+
+  <script>
+    function showAlert() {
+      alert("This is an alert box!");
+      document.getElementById("output").innerHTML =
+        '<span class="alert-box">Alert box displayed!</span>';
+    }
+
+    function showConsole() {
+      console.log("This is a console log message!");
+      document.getElementById("output").innerHTML =
+        '<span class="console-log">Message logged to console. Check developer tools (F12).</span>';
+    }
+
+    function showDocumentWrite() {
+      document.write("<h3 style='color:purple;'>Output using document.write()</h3>");
+    }
+
+    function showInnerHTML() {
+      document.getElementById("output").style.color = "green";
+      document.getElementById("output").innerHTML =
+        "Output displayed using <b>innerHTML</b>";
+    }
+  </script>
+</body>
+</html>

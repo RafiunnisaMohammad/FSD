@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Looping in Objects</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(to right, #f9f9f9, #e8f8f5);
+      text-align: center;
+      padding: 50px;
+    }
+
+    h2 {
+      color: #8e44ad;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 2px #ccc;
+    }
+
+    .loop-output {
+      margin: 20px auto;
+      padding: 20px;
+      background-color: rgba(255,255,255,0.9);
+      display: inline-block;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      min-width: 300px;
+      text-align: left;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-bottom: 20px;
+    }
+
+    button:hover {
+      background-color: #2e86c1;
+      transform: scale(1.05);
+    }
+
+    .section-title {
+      color: #2c3e50;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Looping in Objects and Arrays</h2>
+  <button onclick="showData()">Display Data</button>
+
+  <div class="loop-output" id="output">Click the button to see object and array data.</div>
+
+  <script>
+    function showData() {
+      let outputDiv = document.getElementById("output");
+      let html = "";
+
+      // For-in loop
+      html += "<div class='section-title'>Using for-in (object):</div>";
+      let student = { name: "Ravi", age: 20, course: "FSD" };
+      for (let key in student) {
+        html += key + ": " + student[key] + "<br>";
+      }
+
+      // forEach loop
+      html += "<div class='section-title'>Using forEach (array):</div>";
+      let subjects = ["HTML", "CSS", "JS"];
+      subjects.forEach(sub => html += sub + "<br>");
+
+      // for-of loop
+      html += "<div class='section-title'>Using for-of (array):</div>";
+      for (let sub of subjects) {
+        html += sub + "<br>";
+      }
+
+      outputDiv.innerHTML = html;
+    }
+  </script>
+
+</body>
+</html>

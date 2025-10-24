@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Denomination of Amount</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(to right, #fefcea, #f1da36);
+    text-align: center;
+    padding: 50px;
+  }
+
+  h2 {
+    color: #c0392b;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px #ccc;
+  }
+
+  button {
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 20px;
+  }
+
+  button:hover {
+    background-color: #1f618d;
+    transform: scale(1.05);
+  }
+
+  #result {
+    margin-top: 25px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #27ae60;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(255,255,255,0.8);
+    display: inline-block;
+    min-width: 250px;
+    text-align: left;
+  }
+</style>
+</head>
+<body>
+
+<h2>Denomination Calculator</h2>
+<button onclick="denomination()">Enter Amount</button>
+
+<div id="result">Click the button to see denomination.</div>
+
+<script>
+function denomination() {
+  let amount = parseInt(prompt("Enter deposited amount:"));
+  let resultDiv = document.getElementById("result");
+  
+  if (isNaN(amount) || amount <= 0) {
+    resultDiv.innerHTML = "⚠️ Please enter a valid positive amount!";
+    resultDiv.style.color = "#c0392b";
+    return;
+  }
+
+  let notes = [100, 50, 20, 10, 5, 2, 1];
+  let output = `<h3>Denominations for Rs.${amount}:</h3><ul>`;
+
+  for (let note of notes) {
+    let count = Math.floor(amount / note);
+    if (count > 0) {
+      output += `<li>${count} × Rs.${note}</li>`;
+      amount %= note;
+    }
+  }
+  output += "</ul>";
+  resultDiv.innerHTML = output;
+  resultDiv.style.color = "#2980b9";
+}
+</script>
+
+</body>
+</html>

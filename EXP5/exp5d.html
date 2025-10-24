@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Box Model</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #d9faff, #a2c2e6);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h2 {
+      color: #003366;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .box {
+      width: 350px;
+      background: linear-gradient(145deg, #b3d9ff, #80bfff);
+      border: 5px solid #004080; /* Border */
+      padding: 25px; /* Space inside box */
+      margin: 30px; /* Space outside box */
+      text-align: center;
+      color: #001f4d;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      transition: all 0.4s ease;
+    }
+
+    .box:hover {
+      transform: scale(1.05);
+      background: linear-gradient(145deg, #99ccff, #66a3ff);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .box b {
+      color: #00264d;
+    }
+  </style>
+</head>
+<body>
+  <h2>CSS Box Model Example</h2>
+  <div class="box">
+    <b>Content:</b> This is the main content.<br><br>
+    <b>Padding:</b> 25px inside border.<br><br>
+    <b>Border:</b> 5px dark blue border.<br><br>
+    <b>Margin:</b> 30px outside border.
+  </div>
+</body>
+</html>

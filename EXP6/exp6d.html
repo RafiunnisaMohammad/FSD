@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voter Eligibility Check</title>
+
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #e1bee7);
+      text-align: center;
+      padding: 40px;
+    }
+
+    h2 {
+      color: #2c3e50;
+      font-size: 30px;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 3px #ccc;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 60%;
+      margin: 30px auto;
+      text-align: center;
+      border: 2px solid #333;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      border-radius: 10px;
+      overflow: hidden;
+      background-color: #fff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    table:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+    }
+
+    th {
+      background: linear-gradient(to right, #42a5f5, #64b5f6);
+      color: white;
+      font-size: 18px;
+      padding: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    td {
+      padding: 12px;
+      font-size: 16px;
+      border-top: 1px solid #ccc;
+    }
+
+    .eligible {
+      color: green;
+      font-weight: bold;
+    }
+
+    .not-eligible {
+      color: red;
+      font-weight: bold;
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Voter Eligibility Check</h2>
+
+  <script>
+    // Intro alert message
+    alert("Welcome! 👋\nWe will check if you are eligible to vote.\nPlease enter your name and age when prompted.");
+
+    // Taking input using prompt
+    let name = prompt("Enter your name:");
+    let age = parseInt(prompt("Enter your age:"));
+
+    // Validation and eligibility check
+    let eligibility, className;
+    if (!name || isNaN(age)) {
+      document.write("<p style='color:red; font-weight:bold;'>Invalid input! Please refresh and enter valid details.</p>");
+    } else {
+      if (age >= 18) {
+        eligibility = "✅ Eligible to Vote";
+        className = "eligible";
+      } else {
+        eligibility = "❌ Not Eligible to Vote";
+        className = "not-eligible";
+      }
+
+      // Display table
+      document.write("<table>");
+      document.write("<tr><th>Name</th><th>Age</th><th>Eligibility</th></tr>");
+      document.write(
+        `<tr>
+          <td>${name}</td>
+          <td>${age}</td>
+          <td class='${className}'>${eligibility}</td>
+        </tr>`
+      );
+      document.write("</table>");
+    }
+  </script>
+</body>
+</html>

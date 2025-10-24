@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Functions with Buttons</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(to right, #f9f9f9, #e3f2fd);
+    text-align: center;
+    padding: 50px;
+  }
+
+  h2 {
+    color: #1565c0;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 2px #aaa;
+  }
+
+  input[type="text"] {
+    padding: 10px;
+    width: 180px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+  }
+
+  input[type="text"]:focus {
+    border-color: #1565c0;
+    box-shadow: 0 0 5px #1565c0;
+  }
+
+  button {
+    background-color: #43a047;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin: 5px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    background-color: #2e7d32;
+    transform: scale(1.05);
+  }
+
+  #result {
+    margin-top: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #d32f2f;
+    padding: 15px;
+    background-color: rgba(255,255,255,0.85);
+    border-radius: 10px;
+    display: inline-block;
+    min-width: 300px;
+    text-align: left;
+  }
+</style>
+</head>
+<body>
+
+<h2>JavaScript Functions and Events</h2>
+<label>Enter a number: </label>
+<input type="text" id="num" placeholder="Type a number"><br><br>
+
+<button onclick="factorial()">Factorial</button>
+<button onclick="fibonacci()">Fibonacci</button>
+<button onclick="prime()">Prime Numbers</button>
+<button onclick="palindrome()">Palindrome</button>
+
+<div id="result">Click a button to see the result.</div>
+
+<script>
+function factorial() {
+  let n = parseInt(document.getElementById("num").value);
+  if(isNaN(n) || n < 0) { displayError(); return; }
+  let fact = 1;
+  for (let i = 1; i <= n; i++) fact *= i;
+  document.getElementById("result").innerHTML = `Factorial of ${n}: ${fact}`;
+}
+
+function fibonacci() {
+  let n = parseInt(document.getElementById("num").value);
+  if(isNaN(n) || n < 1) { displayError(); return; }
+  let a = 0, b = 1, res = [a];
+  if(n > 1) res.push(b);
+  for (let i = 2; i < n; i++) {
+    let next = a + b;
+    res.push(next);
+    a = b;
+    b = next;
+  }
+  document.getElementById("result").innerHTML = `Fibonacci series up to ${n}: ${res.join(", ")}`;
+}
+
+function prime() {
+  let n = parseInt(document.getElementById("num").value);
+  if(isNaN(n) || n < 2) { displayError(); return; }
+  let primes = [];
+  for (let i = 2; i <= n; i++) {
+    let isPrime = true;
+    for (let j = 2; j <= Math.sqrt(i); j++) {
+      if (i % j === 0) { isPrime = false; break; }
+    }
+    if (isPrime) primes.push(i);
+  }
+  document.getElementById("result").innerHTML = `Prime numbers up to ${n}: ${primes.join(", ")}`;
+}
+
+function palindrome() {
+  let n = document.getElementById("num").value;
+  if(!n) { displayError(); return; }
+  let rev = n.split('').reverse().join('');
+  document.getElementById("result").innerHTML = `"${n}" is ${n === rev ? 'a Palindrome ✅' : 'Not a Palindrome ❌'}`;
+}
+
+function displayError() {
+  document.getElementById("result").innerHTML = "⚠️ Please enter a valid positive number!";
+}
+</script>
+
+</body>
+</html>

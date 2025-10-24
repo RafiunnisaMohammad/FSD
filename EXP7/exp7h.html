@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User-defined Object Example</title>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #ffe0b2);
+      text-align: center;
+      padding: 50px;
+    }
+
+    h2 {
+      color: #d35400;
+      text-shadow: 1px 1px 3px #ccc;
+      margin-bottom: 25px;
+    }
+
+    #result {
+      display: inline-block;
+      background: #fff;
+      padding: 25px 35px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      text-align: left;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #result:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    }
+
+    .label {
+      color: #2980b9;
+      font-weight: bold;
+    }
+
+    input[type="text"], input[type="number"] {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      outline: none;
+      margin: 5px;
+    }
+
+    input[type="text"]:focus, input[type="number"]:focus {
+      border-color: #d35400;
+      box-shadow: 0 0 5px #d35400;
+    }
+
+    button {
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      margin: 10px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #1e8449;
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: 25px;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h2>👩‍🎓 User-defined Object Example</h2>
+
+  <div>
+    <input type="text" id="name" placeholder="Name">
+    <input type="number" id="age" placeholder="Age">
+    <input type="number" id="marks" placeholder="Marks">
+    <button onclick="createStudent()">Create Student</button>
+  </div>
+
+  <div id="result"></div>
+
+
+  <script>
+    function Student(name, age, marks) {
+      this.name = name;
+      this.age = age;
+      this.marks = marks;
+
+      this.display = function() {
+        return `Name: ${this.name}, Age: ${this.age}, Marks: ${this.marks}`;
+      };
+
+      // Accessor property
+      this.getGrade = function() {
+        return this.marks >= 50 ? "Pass ✅" : "Fail ❌";
+      };
+    }
+
+    // Initial student
+    let s1 = new Student("Junnu", 20, 85);
+    document.getElementById("result").innerHTML = `
+      <span class="label">Student Info:</span><br>
+      ${s1.display()} <br>
+      <span class="label">Grade:</span> ${s1.getGrade()}
+    `;
+
+    function createStudent() {
+      let name = document.getElementById("name").value.trim();
+      let age = parseInt(document.getElementById("age").value);
+      let marks = parseInt(document.getElementById("marks").value);
+
+      if(!name || isNaN(age) || isNaN(marks)) {
+        alert("Please enter valid details!");
+        return;
+      }
+
+      let newStudent = new Student(name, age, marks);
+      document.getElementById("result").innerHTML = `
+        <span class="label">Student Info:</span><br>
+        ${newStudent.display()} <br>
+        <span class="label">Grade:</span> ${newStudent.getGrade()}
+      `;
+
+      // Clear input fields
+      document.getElementById("name").value = "";
+      document.getElementById("age").value = "";
+      document.getElementById("marks").value = "";
+    }
+  </script>
+</body>
+</html>

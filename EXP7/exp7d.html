@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Math Object with Factors</title>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(to right, #fceabb, #f8b500);
+      text-align: center;
+      padding: 50px;
+    }
+
+    h2 {
+      color: #2c3e50;
+      text-shadow: 1px 1px 2px #ccc;
+      margin-bottom: 25px;
+    }
+
+    #result {
+      display: inline-block;
+      background: #fff;
+      padding: 25px 35px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    #result:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    }
+
+    .operation {
+      color: #e67e22;
+      font-weight: bold;
+    }
+
+    button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      margin: 10px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: 25px;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h2>🧮 Math Object with Random Number Factors</h2>
+
+  <div id="result"></div>
+
+  <button onclick="generateMath()">Generate Random Number</button>
+
+
+  <script>
+    let num = 16.75;
+
+    // Function to calculate factors of a number
+    function getFactors(n) {
+      let factors = [];
+      for(let i = 1; i <= n; i++) {
+        if(n % i === 0) factors.push(i);
+      }
+      return factors;
+    }
+
+    function generateMath() {
+      let randomNum = Math.floor(Math.random() * 100) + 1; // random number 1-100
+      let factors = getFactors(randomNum);
+
+      let output = `
+        <span class="operation">Square root of 16:</span> ${Math.sqrt(16)} <br>
+        <span class="operation">Power (2^3):</span> ${Math.pow(2,3)} <br>
+        <span class="operation">Random Number (1-100):</span> ${randomNum} <br>
+        <span class="operation">Factors of ${randomNum}:</span> ${factors.join(", ")} <br>
+        <span class="operation">Round of 16.75:</span> ${Math.round(num)} <br>
+        <span class="operation">Ceil of 16.75:</span> ${Math.ceil(num)} <br>
+        <span class="operation">Floor of 16.75:</span> ${Math.floor(num)}
+      `;
+      document.getElementById("result").innerHTML = output;
+    }
+
+    // Initial display
+    generateMath();
+  </script>
+</body>
+</html>

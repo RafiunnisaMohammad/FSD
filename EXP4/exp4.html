@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Selector Forms</title>
+<style>
+/* ---------------------------
+   i. SIMPLE SELECTORS
+---------------------------- */
+
+/* Element selector */
+h2 {
+  color: darkblue;
+}
+
+/* ID selector */
+#special {
+  color: crimson;
+  font-weight: bold;
+}
+
+/* Class selector */
+.highlight {
+  background-color: yellow;
+  padding: 3px;
+}
+
+/* Group selector */
+p, li {
+  font-size: 18px;
+  color: darkgreen;
+}
+
+/* Universal selector */
+* {
+  font-family: Arial, sans-serif;
+}
+
+/* ---------------------------
+   ii. COMBINATOR SELECTORS
+---------------------------- */
+
+/* Descendant selector */
+div p {
+  color: purple;
+}
+
+/* Child selector */
+div > h3 {
+  color: orange;
+}
+
+/* Adjacent sibling selector */
+h3 + p {
+  color: teal;
+  font-style: italic;
+}
+
+/* General sibling selector */
+h3 ~ p {
+  text-decoration: underline;
+}
+
+/* ---------------------------
+   iii. PSEUDO-CLASS SELECTORS
+---------------------------- */
+
+a:hover {
+  color: red;
+}
+
+button:focus {
+  background-color: lightgreen;
+}
+
+li:first-child {
+  color: brown;
+}
+
+/* ---------------------------
+   iv. PSEUDO-ELEMENT SELECTORS
+---------------------------- */
+
+p::first-letter {
+  font-size: 24px;
+  color: blue;
+}
+
+p::after {
+  content: " ✅";
+}
+
+/* ---------------------------
+   v. ATTRIBUTE SELECTORS
+---------------------------- */
+
+/* element with attribute */
+input[type="text"] {
+  border: 2px solid blue;
+  padding: 5px;
+}
+
+/* element whose attribute value starts with */
+a[href^="https"] {
+  color: green;
+}
+
+/* element whose attribute value ends with */
+a[href$=".com"] {
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<h1>CSS Selector Forms Example</h1>
+
+<!-- Simple Selectors -->
+<h2>1. Simple Selectors</h2>
+<p>This is a <span class="highlight">simple selector</span> example.</p>
+<p id="special">This paragraph uses an ID selector.</p>
+
+<!-- Combinator Selectors -->
+<h2>2. Combinator Selectors</h2>
+<div>
+  <h3>Child inside Div</h3>
+  <p>Paragraph inside a div (descendant).</p>
+  <p>Another paragraph (general sibling).</p>
+</div>
+<p>Paragraph outside div (not affected).</p>
+
+<!-- Pseudo-class -->
+<h2>3. Pseudo-class Selectors</h2>
+<a href="https://www.google.com">Hover over this link</a>
+<br><br>
+<button>Click or focus me</button>
+<ul>
+  <li>First item (will be brown)</li>
+  <li>Second item</li>
+</ul>
+
+<!-- Pseudo-element -->
+<h2>4. Pseudo-element Selectors</h2>
+<p>This paragraph demonstrates pseudo-elements.</p>
+
+<!-- Attribute Selectors -->
+<h2>5. Attribute Selectors</h2>
+<input type="text" placeholder="Enter your name">
+<br><br>
+<a href="https://example.com">Example.com Link</a>
+<br>
+<a href="https://secure.org">Secure Link</a>
+
+</body>
+</html>

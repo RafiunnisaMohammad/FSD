@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Functions Example</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(to right, #fdfbfb, #c7ecee);
+    text-align: center;
+    padding: 50px;
+  }
+
+  h2 {
+    color: #d35400;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px #ccc;
+  }
+
+  button {
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 20px;
+  }
+
+  button:hover {
+    background-color: #1f618d;
+    transform: scale(1.05);
+  }
+
+  #result {
+    margin-top: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #2c3e50;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(255,255,255,0.85);
+    display: inline-block;
+    text-align: left;
+    min-width: 300px;
+  }
+
+  #result p {
+    margin: 8px 0;
+  }
+</style>
+</head>
+<body>
+
+<h2>Functions Example</h2>
+<button onclick="displayAll()">Enter Number</button>
+
+<div id="result">Click the button to see results.</div>
+
+<script>
+function factorial(n) {
+  let fact = 1;
+  for (let i = 1; i <= n; i++) fact *= i;
+  return fact;
+}
+
+function fibonacci(n) {
+  if(n===1) return "0";
+  let a = 0, b = 1, result = [a, b];
+  for (let i = 2; i < n; i++) {
+    let next = a + b;
+    result.push(next);
+    a = b;
+    b = next;
+  }
+  return result.join(", ");
+}
+
+function primeNumbers(n) {
+  let primes = [];
+  for (let i = 2; i <= n; i++) {
+    let isPrime = true;
+    for (let j = 2; j <= Math.sqrt(i); j++) {
+      if (i % j === 0) {
+        isPrime = false;
+        break;
+      }
+    }
+    if (isPrime) primes.push(i);
+  }
+  return primes.join(", ");
+}
+
+function isPalindrome(n) {
+  let str = n.toString();
+  let reversed = str.split('').reverse().join('');
+  return str === reversed ? "Palindrome ✅" : "Not a Palindrome ❌";
+}
+
+function displayAll() {
+  let num = parseInt(prompt("Enter a number:"));
+  let resultDiv = document.getElementById("result");
+
+  if(isNaN(num)) {
+    resultDiv.innerHTML = "⚠️ Please enter a valid number!";
+    resultDiv.style.color = "#c0392b";
+    return;
+  }
+
+  resultDiv.innerHTML = `
+    <p><b>Number:</b> ${num}</p>
+    <p><b>Factorial:</b> ${factorial(num)}</p>
+    <p><b>Fibonacci Series:</b> ${fibonacci(num)}</p>
+    <p><b>Prime Numbers up to ${num}:</b> ${primeNumbers(num)}</p>
+    <p><b>Palindrome Check:</b> ${isPalindrome(num)}</p>
+  `;
+  resultDiv.style.color = "#2c3e50";
+}
+</script>
+
+</body>
+</html>

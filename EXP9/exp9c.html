@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Form Validation</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(to right, #e0f7fa, #f1f8e9);
+    padding: 40px 20px;
+  }
+
+  h2 {
+    text-align: center;
+    color: #00796b;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px #aaa;
+  }
+
+  form {
+    background-color: #ffffff;
+    max-width: 450px;
+    margin: auto;
+    padding: 30px 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  td {
+    padding: 12px 5px;
+  }
+
+  input[type="text"], input[type="email"] {
+    width: 95%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #b0bec5;
+    outline: none;
+    font-size: 14px;
+    transition: 0.3s;
+  }
+
+  input[type="text"]:focus, input[type="email"]:focus {
+    border-color: #00796b;
+    box-shadow: 0 0 5px #00796b;
+  }
+
+  input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background-color: #00796b;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #004d40;
+    transform: scale(1.05);
+  }
+
+  #message {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .error {
+    color: #d32f2f;
+  }
+
+  .success {
+    color: #388e3c;
+  }
+</style>
+<script>
+function validateForm() {
+    let msg = document.getElementById("message");
+    msg.innerHTML = "";
+
+    let name = document.getElementById("name").value.trim();
+    let mobile = document.getElementById("mobile").value.trim();
+    let email = document.getElementById("email").value.trim();
+
+    let namePattern = /^[A-Za-z][A-Za-z0-9 ]{5,}$/;
+    let mobilePattern = /^[0-9]{10}$/;
+    let emailPattern = /^[a-zA-Z0-9._%+-]+@(gmail|yahoo|outlook)\.com$/;
+
+    if (!namePattern.test(name)) {
+        msg.innerHTML = "⚠️ Invalid Name! Must start with a letter and be at least 6 characters.";
+        msg.className = "error";
+        return false;
+    }
+
+    if (!mobilePattern.test(mobile)) {
+        msg.innerHTML = "⚠️ Invalid Mobile! Must be exactly 10 digits.";
+        msg.className = "error";
+        return false;
+    }
+
+    if (!emailPattern.test(email)) {
+        msg.innerHTML = "⚠️ Invalid Email! Use example@gmail.com, example@yahoo.com, or example@outlook.com";
+        msg.className = "error";
+        return false;
+    }
+
+    msg.innerHTML = "✅ Registration Successful!";
+    msg.className = "success";
+    return false; // prevent form submission for demo
+}
+</script>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+<form onsubmit="return validateForm()">
+  <table>
+    <tr>
+      <td>Name:</td>
+      <td><input type="text" id="name" placeholder="Enter your name"></td>
+    </tr>
+    <tr>
+      <td>Mobile:</td>
+      <td><input type="text" id="mobile" placeholder="Enter 10-digit mobile"></td>
+    </tr>
+    <tr>
+      <td>Email:</td>
+      <td><input type="text" id="email" placeholder="Enter your email"></td>
+    </tr>
+    <tr>
+      <td colspan="2"><input type="submit" value="Register"></td>
+    </tr>
+  </table>
+  <div id="message"></div>
+</form>
+
+</body>
+</html>

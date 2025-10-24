@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document Object Example</title>
+
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(to right, #fff8e1, #ffe0b2);
+      color: #2c3e50;
+      text-align: center;
+      margin: 0;
+      padding: 40px;
+    }
+
+    h2 {
+      color: #d35400;
+      text-shadow: 1px 1px 3px #ccc;
+      margin-bottom: 20px;
+    }
+
+    #info {
+      display: inline-block;
+      text-align: left;
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      line-height: 1.8;
+      font-size: 18px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #info:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    span {
+      color: #e67e22;
+      font-weight: bold;
+    }
+
+    footer {
+      margin-top: 30px;
+      color: #555;
+      font-size: 14px;
+    }
+
+    button {
+      margin-top: 20px;
+      background-color: #e67e22;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ca6f1e;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>📄 Document Object Example</h2>
+  <p id="info"></p>
+
+  <button onclick="refreshInfo()">🔁 Refresh Info</button>
+
+
+  <script>
+    // Set background and title dynamically
+    document.bgColor = "#fffde7";
+    document.title = "Document Object Demo";
+
+    function showInfo() {
+      document.getElementById("info").innerHTML =
+        `<span>Document Title:</span> ${document.title}<br>` +
+        `<span>Last Modified:</span> ${document.lastModified}<br>` +
+        `<span>URL:</span> ${document.URL}<br>` +
+        `<span>Domain:</span> ${document.domain}<br>` +
+        `<span>Total Elements:</span> ${document.getElementsByTagName('*').length}`;
+    }
+
+    function refreshInfo() {
+      showInfo();
+    }
+
+    // Initial call
+    showInfo();
+  </script>
+</body>
+</html>
